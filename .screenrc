@@ -8,6 +8,8 @@ nonblock on
 multiuser on
 defwritelock auto
 
+vbell off
+
 bind ')' select 10
 bind '!' select 11
 bind '@' select 12
