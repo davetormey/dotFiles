@@ -1,0 +1,90 @@
+startup_message off
+deflogin on
+autodetach on
+#escape ^zz
+defscrollback 50000
+nonblock on
+#acladd alexh HZCo4VS2o40c.
+multiuser on
+defwritelock auto
+
+bind ')' select 10
+bind '!' select 11
+bind '@' select 12
+bind '#' select 13
+bind '$' select 14
+bind '%' select 15
+bind '^' select 16
+bind '&' select 17
+bind '*' select 18
+bind '(' select 19
+bind -c mod1 0 select 20
+bind -c mod1 1 select 21
+bind -c mod1 2 select 22
+bind -c mod1 3 select 23
+bind -c mod1 4 select 24
+bind -c mod1 5 select 25
+bind -c mod1 6 select 26
+bind -c mod1 7 select 27
+bind -c mod1 8 select 28
+bind -c mod1 9 select 29
+bind -c mod1 ')' select 30
+bind -c mod1 '!' select 31
+bind -c mod1 '@' select 32
+bind -c mod1 '#' select 33
+bind -c mod1 '$' select 34
+bind -c mod1 '%' select 35
+bind -c mod1 '^' select 36
+bind -c mod1 '&' select 37
+bind -c mod1 '*' select 38
+bind -c mod1 '(' select 39
+bind '-' command -c mod1
+
+#hardstatus alwayslastline ' %m-%d-%y %c %w'
+hardstatus alwayslastline '%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a '
+#caption always '%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n %t%{-}%+Lw%-0<'
+#caption always '%?%F%{-b bc}%:%{-b bb}%?%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<'
+#caption always '%?%F%{= Kk}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}'
+#caption always '%?%F%{= BW}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}'
+#caption always '%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n '
+
+# caption description:
+# caption always '%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<'
+# 
+# Anything I don't describe is treated literally.
+# 
+# %?          - Start of a conditional statement.
+#  %F         - Use this part of the statement if the window has focus (i.e. it
+#               is the only window or the currently active one).
+#  %{-b bc}   - Turn off bold, blue foreground, cyan background.
+# %:          - else
+#  %{-b bb}   - Turn off bold, blue foreground, blue background (this obscures
+#               the text on non-focused windows and just gives a blue line).
+# %?          - End conditional statement.
+#  %C         - time (hh:mm, leading space) in 12 hour format
+#  %D         - Three-letter day-of-week appreviation
+#  %M         - Three-letter month appreviation
+#  %d         - Day of the month
+#  %H         - hostname
+#  %?         - Start of conditional statement.
+#   %F        - Use this part of the statement if the window has focus.
+#   %{+u wb}  - underlined, white foreground, blue background
+#  %?         - End conditional (if not focused, text remaind blue on blue).
+#    %L=      - truncation/padding point.  With the 'L' qualifier, basically
+#               just acts as a reference point.  Further truncation/padding is
+#               done relative to here, not the beginning of the string
+#    %-Lw     - window list up to but not including the current window (-),
+#               show window flags (L)
+#    %45>     - truncation/padding marker; place this point about 45% of the
+#               way into the display area (45)
+#    %{+b by} - add bold (still underlined from before), blue foreground,
+#               yellow background
+#      %n     - number of the current window
+#      %f     - flags for current window
+#      %t     - title of current window
+#    %{-}     - undo last color change (so now we're back to underlined white
+#               on blue)  (technically, this is a pop; a second invocation
+#               would drop things back to unadorned blue on cyan)
+#    %+Lw     - window list from the next window on (-), show window flags (L)
+#    %-0<     - truncation/padding point.  Place this point zero spaces (0)
+#               from the right margin (-).
